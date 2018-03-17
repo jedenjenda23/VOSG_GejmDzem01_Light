@@ -138,9 +138,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0.7963601, b: 0.459, a: 1}
-  m_Intensity: 2.74
-  m_Range: 18.951164
+  m_Color: {r: 1, g: 0.826604, b: 0.353, a: 1}
+  m_Intensity: 1.9
+  m_Range: 10.78923
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -190,8 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b056234bc2fae2d43a6e2672b091c833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLightColor: 0
   playerLight: {fileID: 108346960651066312}
-  maxLight: 60
+  maxLight: 120
 --- !u!114 &114733400094072822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,11 +207,11 @@ MonoBehaviour:
   movementSpeed: 6
   gravity: 10
   targetVelocity: {x: 0, y: 0, z: 0}
-  lookAtMouse: 1
+  lookAtMouse: 0
   rotationSpeed: 10
   raycastLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!136 &136985169932315354
 CapsuleCollider:
   m_ObjectHideFlags: 1

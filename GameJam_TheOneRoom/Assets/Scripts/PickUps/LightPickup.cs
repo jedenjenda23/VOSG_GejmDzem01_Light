@@ -7,41 +7,19 @@ public class LightPickup : MonoBehaviour
 {
     [SerializeField]
     [Range(0, 120)]
-    float lightAmount = 60f;
+    protected float lightAmount = 60f;
 
-    public lightTypes lightColor;
+    [SerializeField]
+    protected lightTypes lightColor;
 
     bool updateLightInEditor = true;
 
     void Awake()
     {
         updateLightInEditor = false;
-
-        switch (lightColor)
-        {
-            case lightTypes.Standart:
-                GetComponentInChildren<MeshRenderer>().material = GlobalColorManager.instance.standartEmmisive;
-                GetComponentInChildren<Light>().color = GlobalColorManager.instance.standarLightColor;
-                break;
-
-            case lightTypes.Red:
-                GetComponentInChildren<Light>().color = GlobalColorManager.instance.redLightColor;
-                GetComponentInChildren<MeshRenderer>().material = GlobalColorManager.instance.redEmmisive;
-                break;
-
-            case lightTypes.Green:
-                GetComponentInChildren<Light>().color = GlobalColorManager.instance.greenLightColor;
-                GetComponentInChildren<MeshRenderer>().material = GlobalColorManager.instance.greenEmmisive;
-                break;
-
-            case lightTypes.Blue:
-                GetComponentInChildren<Light>().color = GlobalColorManager.instance.blueLightColor;
-                GetComponentInChildren<MeshRenderer>().material = GlobalColorManager.instance.blueEmmisive;
-                break;
-        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerLight>())
         {

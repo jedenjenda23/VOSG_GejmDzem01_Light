@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 3f; 
     public float gravity = 10f;
     public Vector3 targetVelocity;
+    public LayerMask groundCheckLayer;
 
     [Header("MouseControl")]
     public bool lookAtMouse = true;
@@ -28,12 +29,25 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
         MousePosition();
         CharacterRotation();
+
+        //return to menu
+
+        if (Input.GetKeyDown(KeyCode.Escape)) MenuFunctions.instance.LoadScene("scene_mainMenu");
     }
 
 
     bool GroundCheck()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, 1.1f))
+        /*
+              if (Physics.Raycast(transform.position, Vector3.down, 1.1f))
+            {
+                return true;
+            }
+            else return false;
+        */
+        Ray myRay = new Ray(transform.position, Vector3.down);
+
+        if (Physics.SphereCast(myRay, 0.5f, 1.1f))
         {
             return true;
         }
