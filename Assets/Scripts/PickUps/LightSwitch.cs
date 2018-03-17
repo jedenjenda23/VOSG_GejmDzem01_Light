@@ -6,7 +6,6 @@ public class LightSwitch : LightPickup
 {
     protected override void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ladssadas");
         if (other.GetComponent<PlayerLight>())
         {
             lightTypes tempCol = lightColor;
@@ -14,6 +13,7 @@ public class LightSwitch : LightPickup
             //Switch Colors
             lightColor = other.GetComponent<PlayerLight>().currentLightColor;
             other.GetComponent<PlayerLight>().currentLightColor = tempCol;
+            UpdateLighColor();
         }
     }
 }
