@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
+    public float movementSpeedBonus = 0f;
+    public float movementSpeedBonusTimer = 0f;
+
+    [Space]
     public float movementSpeed = 3f; 
     public float gravity = 10f;
     public Vector3 targetVelocity;
@@ -30,11 +34,18 @@ public class PlayerController : MonoBehaviour
         MousePosition();
         CharacterRotation();
 
-        //return to menu
+        if (movementSpeedBonusTimer > 0) movementSpeedBonusTimer -= Time.deltaTime;
+        else movementSpeedBonusTimer = 0;
 
+        //return to menu
         if (Input.GetKeyDown(KeyCode.Escape)) MenuFunctions.instance.LoadScene("scene_mainMenu");
     }
 
+    public void AddBoostSpeed(float speedBonus, float time)
+    {
+        movementSpeedBonus += speedBonus;
+        movementSpeedBonusTimer += time;
+    }
 
     bool GroundCheck()
     {
@@ -116,7 +127,8 @@ public class PlayerController : MonoBehaviour
             targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
             // Normalize vector, affection of momevemnt speed in seconds
-            targetVelocity = targetVelocity.normalized * movementSpeed * Time.deltaTime;
+          if(movementSpeedBonusTimer > 0)  targetVelocity = targetVelocity.normalized * (movementSpeed + movementSpeedBonus) * Time.deltaTime;
+          else targetVelocity = targetVelocity.normalized * movementSpeed * Time.deltaTime;
 
             rb.MovePosition(transform.position + targetVelocity);
             rb.AddForce(new Vector3(0, gravity, 0));

@@ -10,6 +10,13 @@ public class LightPickup : MonoBehaviour
     protected float lightAmount = 60f;
 
     [SerializeField]
+    [Range(0, 10)]
+    protected float speedBoostTime = 0f;
+
+    [SerializeField]
+    protected float speedBoostAmount = 0f;
+
+    [SerializeField]
     protected lightTypes lightColor;
 
     bool updateLightInEditor = true;
@@ -27,30 +34,40 @@ public class LightPickup : MonoBehaviour
             other.GetComponent<PlayerLight>().AddRemainingLight(lightAmount);
              if(lightColor == lightTypes.Standart) Destroy(gameObject);
         }
+
+        if (other.GetComponent<PlayerController>())
+        {
+            other.GetComponent<PlayerController>().AddBoostSpeed(speedBoostAmount, speedBoostTime);
+        }
+    }
+
+    protected void UpdateLighColor()
+    {
+        switch (lightColor)
+        {
+            case lightTypes.Standart:
+                GetComponentInChildren<Light>().color = Color.white;
+                break;
+
+            case lightTypes.Red:
+                GetComponentInChildren<Light>().color = Color.red;
+                break;
+
+            case lightTypes.Green:
+                GetComponentInChildren<Light>().color = Color.green;
+                break;
+
+            case lightTypes.Blue:
+                GetComponentInChildren<Light>().color = Color.blue;
+                break;
+        }
     }
 
     private void OnDrawGizmos()
     {
         if(updateLightInEditor)
         {
-            switch (lightColor)
-            {
-                case lightTypes.Standart:
-                    GetComponentInChildren<Light>().color = Color.white;
-                    break;
-
-                case lightTypes.Red:
-                    GetComponentInChildren<Light>().color = Color.red;
-                    break;
-
-                case lightTypes.Green:
-                    GetComponentInChildren<Light>().color = Color.green;
-                    break;
-
-                case lightTypes.Blue:
-                    GetComponentInChildren<Light>().color = Color.blue;
-                    break;
-            }
+            UpdateLighColor();
         }
     }
 }
