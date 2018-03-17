@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Animations")]
+    public Animator animator;
+
     [Header("Movement")]
     public float movementSpeedBonus = 0f;
     public float movementSpeedBonusTimer = 0f;
@@ -36,6 +39,17 @@ public class PlayerController : MonoBehaviour
 
         if (movementSpeedBonusTimer > 0) movementSpeedBonusTimer -= Time.deltaTime;
         else movementSpeedBonusTimer = 0;
+
+        //animator update
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            animator.SetBool("moving", true);
+        }
+
+        else animator.SetBool("moving", false);
+
+        animator.SetBool("grounded", GroundCheck());
+
 
         //return to menu
         if (Input.GetKeyDown(KeyCode.Escape)) MenuFunctions.instance.LoadScene("scene_mainMenu");
