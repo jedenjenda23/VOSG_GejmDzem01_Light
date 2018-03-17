@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LightPickup : MonoBehaviour
 {
+    public bool destroyParent;
     [SerializeField]
     [Range(0, 120)]
     protected float lightAmount = 60f;
@@ -32,16 +33,19 @@ public class LightPickup : MonoBehaviour
         {
             other.GetComponent<PlayerLight>().currentLightColor = lightColor;
             other.GetComponent<PlayerLight>().AddRemainingLight(lightAmount);
-             if(lightColor == lightTypes.Standart) Destroy(gameObject);
+             if(lightColor == lightTypes.Standart && !destroyParent) Destroy(gameObject);
+             else if (lightColor == lightTypes.Standart && destroyParent) Destroy(transform.parent.gameObject);
+
         }
 
         if (other.GetComponent<PlayerController>())
         {
             other.GetComponent<PlayerController>().AddBoostSpeed(speedBoostAmount, speedBoostTime);
         }
+
     }
 
-    protected void UpdateLighColor()
+    protected void UpdateLightColor()
     {
         switch (lightColor)
         {
@@ -67,7 +71,7 @@ public class LightPickup : MonoBehaviour
     {
         if(updateLightInEditor)
         {
-            UpdateLighColor();
+            UpdateLightColor();
         }
     }
 }

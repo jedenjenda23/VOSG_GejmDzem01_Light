@@ -26,8 +26,8 @@ public class AI_Firefly : MonoBehaviour
     void Dash(Vector3 dir)
     {
 
-        dir.x -= Random.RandomRange(0, 4f);
-        dir.x += Random.RandomRange(0, 4f);
+        dir.x -= Random.Range(0, 5f);
+        dir.x += Random.Range(0, 5f);
 
         rb.AddForce(dir.normalized * Random.Range(0.5f * movementForce, 1.25f * movementForce), ForceMode.Impulse);
     }
