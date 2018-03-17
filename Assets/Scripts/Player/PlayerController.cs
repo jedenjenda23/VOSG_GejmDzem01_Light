@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeedBonusTimer = 0f;
 
     [Space]
+    public float jumpTime = 1f;
     public float dashForce = 10;
     public float dashRate = 2f;
     float nextDash;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     RaycastHit mouseRaycastHit;
     Rigidbody rb;
     bool grounded;
+    bool jumping;
 
     private void Awake()
     {
@@ -144,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovement()
     {
-        grounded = GroundCheck();
+        if(!jumping)grounded = GroundCheck();
 
         if (grounded)
         {
@@ -176,14 +178,28 @@ public class PlayerController : MonoBehaviour
     {
         if (Time.time > nextDash)
         {
-            Debug.Log("sadas");
+
+            //aimator
+            animator.SetBool("jump", true);
+
+            StartCoroutine("SetJumpingFalse", jumpTime);
+
+            jumping = true;
+            grounded = false;
+
                 Vector3 dashVector = targetVelocity.normalized * dashForce;
                 rb.AddForce(dashVector * dashForce);
 
             nextDash = Time.time + dashRate;
         }
-
     }
+
+    IEnumerator SetJumpingFalse(float time)
+    {
+        yield return new WaitForSeconds(time);
+        jumping = false;
+    }
+
 #if UNITY_EDITOR
 
     private void OnDrawGizmos()
