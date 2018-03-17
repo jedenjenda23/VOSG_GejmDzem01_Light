@@ -17,6 +17,7 @@ public class LightPickup : MonoBehaviour
     void Awake()
     {
         updateLightInEditor = false;
+        UpdateLightColor();
     }
 
     protected virtual void OnTriggerEnter(Collider other)
@@ -29,28 +30,37 @@ public class LightPickup : MonoBehaviour
         }
     }
 
+    protected virtual void UpdateLightColor()
+    {
+        switch (lightColor)
+        {
+            case lightTypes.Standart:
+                GetComponentInChildren<MeshRenderer>().material = GlobalColorManager.instance.standartEmmisive;
+                GetComponentInChildren<Light>().color = GlobalColorManager.instance.standarLightColor;
+                break;
+
+            case lightTypes.Red:
+                GetComponentInChildren<Light>().color = GlobalColorManager.instance.redLightColor;
+                GetComponentInChildren<MeshRenderer>().material = GlobalColorManager.instance.redEmmisive;
+                break;
+
+            case lightTypes.Green:
+                GetComponentInChildren<Light>().color = GlobalColorManager.instance.greenLightColor;
+                GetComponentInChildren<MeshRenderer>().material = GlobalColorManager.instance.greenEmmisive;
+                break;
+
+            case lightTypes.Blue:
+                GetComponentInChildren<Light>().color = GlobalColorManager.instance.blueLightColor;
+                GetComponentInChildren<MeshRenderer>().material = GlobalColorManager.instance.blueEmmisive;
+                break;
+        }
+    }
+
     private void OnDrawGizmos()
     {
-        if(updateLightInEditor)
+        if (updateLightInEditor)
         {
-            switch (lightColor)
-            {
-                case lightTypes.Standart:
-                    GetComponentInChildren<Light>().color = Color.white;
-                    break;
-
-                case lightTypes.Red:
-                    GetComponentInChildren<Light>().color = Color.red;
-                    break;
-
-                case lightTypes.Green:
-                    GetComponentInChildren<Light>().color = Color.green;
-                    break;
-
-                case lightTypes.Blue:
-                    GetComponentInChildren<Light>().color = Color.blue;
-                    break;
-            }
+            UpdateLightColor();
         }
     }
 }

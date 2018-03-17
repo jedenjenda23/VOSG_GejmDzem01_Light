@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IgnoreCollisionOnColor : LightColorInteractible
 {
+    public bool ignoreCollisionWithOtherColors = true;
+
 
     new void Start()
     {
@@ -28,7 +30,13 @@ public class IgnoreCollisionOnColor : LightColorInteractible
     {
         if (collision.collider.GetComponent<PlayerLight>() != null)
         {
-            if (collision.collider.GetComponent<PlayerLight>().currentLightColor == currentLightColor)
+            if (collision.collider.GetComponent<PlayerLight>().currentLightColor != currentLightColor && ignoreCollisionWithOtherColors)
+            {
+                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collision.collider, true);
+                StartCoroutine("ReturnCollision", collision.collider);
+            }
+
+            else if (collision.collider.GetComponent<PlayerLight>().currentLightColor == currentLightColor && !ignoreCollisionWithOtherColors)
             {
                 Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), collision.collider, true);
                 StartCoroutine("ReturnCollision", collision.collider);

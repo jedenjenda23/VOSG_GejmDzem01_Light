@@ -51,10 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d704e96e9ce72843bd945fcd3fb5a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standarLightColor: {r: 1, g: 0.827451, b: 0.3529412, a: 1}
-  redLightColor: {r: 1, g: 0.60784316, b: 0.60784316, a: 1}
-  blueLightColor: {r: 0.60784316, g: 0.60784316, b: 1, a: 1}
-  greenLightColor: {r: 0.60784316, g: 1, b: 0.60784316, a: 1}
+  standarLightColor: {r: 1, g: 0.79084957, b: 0.21568626, a: 1}
+  redLightColor: {r: 1, g: 0.21568626, b: 0.21568626, a: 1}
+  blueLightColor: {r: 0.21568626, g: 0.21568626, b: 1, a: 1}
+  greenLightColor: {r: 0.21568626, g: 1, b: 0.21568626, a: 1}
   standartEmmisive: {fileID: 2100000, guid: 88bfb6380225d4d40abb40a1c44e2ecd, type: 2}
   redEmmisive: {fileID: 2100000, guid: ea336057638d58246b4ef7fff40505b8, type: 2}
   greenEmmisive: {fileID: 2100000, guid: d16f6f99a0a733c47bf0ed3b80226540, type: 2}
