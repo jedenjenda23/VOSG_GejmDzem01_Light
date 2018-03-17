@@ -191,7 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b365fc7e49db881468adc430814c802a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyParent: 0
   lightAmount: 0
+  speedBoostTime: 0
+  speedBoostAmount: 0
   lightColor: 1
 --- !u!135 &135186030196544704
 SphereCollider:
