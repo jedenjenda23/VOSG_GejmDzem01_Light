@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e076a92d6c1b20f46b3a28cbafbea418
-timeCreated: 1521290273
+guid: 62016591abbbdfb41957033e9456c23a
+timeCreated: 1521300781
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: doorWing6
+    4300000: SM_Bridge_Destroyed
     9500000: //RootNode
   materials:
     importMaterials: 1

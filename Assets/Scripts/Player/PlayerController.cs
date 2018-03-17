@@ -147,6 +147,8 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(transform.position + targetVelocity);
             rb.AddForce(new Vector3(0, gravity, 0));
         }
+
+        if (transform.position.y < -50f) MenuFunctions.instance.RestartCurrentScene();
     }
 
 #if UNITY_EDITOR
