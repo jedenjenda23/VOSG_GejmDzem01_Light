@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour
     public float movementSpeedBonusTimer = 0f;
 
     [Space]
+    public float dashForce = 10;
+    public float dashRate = 2f;
+    float nextDash;
+
+
+    [Space]
     public float movementSpeed = 3f; 
     public float gravity = 10f;
     public Vector3 targetVelocity;
@@ -77,7 +83,7 @@ public class PlayerController : MonoBehaviour
         */
         Ray myRay = new Ray(transform.position, Vector3.down);
 
-        if (Physics.SphereCast(myRay, 0.5f, 1.1f))
+        if (Physics.SphereCast(myRay, 0.5f, 1.05f))
         {
             return true;
         }
@@ -149,15 +155,35 @@ public class PlayerController : MonoBehaviour
           if(movementSpeedBonusTimer > 0)  targetVelocity = targetVelocity.normalized * (movementSpeed + movementSpeedBonus) * Time.deltaTime;
           else targetVelocity = targetVelocity.normalized * movementSpeed * Time.deltaTime;
 
-            rb.MovePosition(transform.position + targetVelocity);
+            
 
+            if (Input.GetButtonDown("Jump"))
+            {
+                Dash();
+            }
         }
 
-        rb.AddForce(new Vector3(0, -gravity, 0));
+        targetVelocity.y -= gravity * Time.deltaTime;
 
+        rb.MovePosition(transform.position + targetVelocity);
+
+
+        //reset game when under map
         if (transform.position.y < -50f) MenuFunctions.instance.RestartCurrentScene();
     }
 
+    public void Dash()
+    {
+        if (Time.time > nextDash)
+        {
+            Debug.Log("sadas");
+                Vector3 dashVector = targetVelocity.normalized * dashForce;
+                rb.AddForce(dashVector * dashForce);
+
+            nextDash = Time.time + dashRate;
+        }
+
+    }
 #if UNITY_EDITOR
 
     private void OnDrawGizmos()
