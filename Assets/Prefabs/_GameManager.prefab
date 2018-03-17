@@ -24,7 +24,7 @@ GameObject:
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1642526147913504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 13.5, y: 5.6, z: 9.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,9 +64,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standarLightColor: {r: 1, g: 0.827451, b: 0.3529412, a: 1}
-  redLightColor: {r: 1, g: 0.41176468, b: 0.41176468, a: 1}
-  blueLightColor: {r: 0.41176468, g: 0.41176468, b: 1, a: 1}
-  greenLightColor: {r: 0.41176468, g: 1, b: 0.41176468, a: 1}
+  redLightColor: {r: 1, g: 0, b: 0, a: 1}
+  blueLightColor: {r: 0, g: 0, b: 1, a: 1}
+  greenLightColor: {r: 0, g: 1, b: 0, a: 1}
   standartEmmisive: {fileID: 2100000, guid: 88bfb6380225d4d40abb40a1c44e2ecd, type: 2}
   redEmmisive: {fileID: 2100000, guid: ea336057638d58246b4ef7fff40505b8, type: 2}
   greenEmmisive: {fileID: 2100000, guid: d16f6f99a0a733c47bf0ed3b80226540, type: 2}
