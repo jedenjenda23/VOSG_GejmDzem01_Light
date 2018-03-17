@@ -38,7 +38,12 @@ public class PlayerController : MonoBehaviour
         CharacterRotation();
 
         if (movementSpeedBonusTimer > 0) movementSpeedBonusTimer -= Time.deltaTime;
-        else movementSpeedBonusTimer = 0;
+
+        else
+        {
+            movementSpeedBonusTimer = 0;
+            movementSpeedBonus = 0;
+        }
 
         //animator update
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
