@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyParent: 1
-  lightAmount: 0
+  lightAmount: 10
   speedBoostTime: 2
   speedBoostAmount: 2
   lightColor: 0
