@@ -145,8 +145,10 @@ public class PlayerController : MonoBehaviour
           else targetVelocity = targetVelocity.normalized * movementSpeed * Time.deltaTime;
 
             rb.MovePosition(transform.position + targetVelocity);
-            rb.AddForce(new Vector3(0, gravity, 0));
+
         }
+
+        rb.AddForce(new Vector3(0, -gravity, 0));
 
         if (transform.position.y < -50f) MenuFunctions.instance.RestartCurrentScene();
     }

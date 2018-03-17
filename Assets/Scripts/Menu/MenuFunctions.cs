@@ -18,6 +18,11 @@ public class MenuFunctions : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void CompleteGame()
+    {
+        SceneManager.LoadScene("scene_mainMenu");
+    }
+
     public void UnFreezeGame()
     {
         Time.timeScale = 1;
