@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLight : MonoBehaviour
-{   
+{
+    public bool gameStarted;
+
     public lightTypes currentLightColor = 0;
 
     public Light playerLight;
@@ -24,7 +26,7 @@ public class PlayerLight : MonoBehaviour
 
     void Update ()
     {
-        UpdateLight();
+        if(gameStarted)UpdateLight();
 	}
 
     void UpdateLight()
@@ -40,12 +42,12 @@ public class PlayerLight : MonoBehaviour
             playerLight.range = initLightRadius * (percRemainingLight * 0.01f);
         }
 
-        if (remainingLight < 0) remainingLight = 0;
+        if (remainingLight < 0) MenuFunctions.instance.RestartCurrentScene();
 
 
         //Update lightColor
 
-        switch(currentLightColor)
+        switch (currentLightColor)
         {
             case lightTypes.Standart:
                 playerLight.color = Vector4.Lerp(playerLight.color, GlobalColorManager.instance.standarLightColor, 1 * Time.deltaTime);
