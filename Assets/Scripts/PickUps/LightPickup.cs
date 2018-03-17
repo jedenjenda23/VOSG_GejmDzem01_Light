@@ -31,9 +31,10 @@ public class LightPickup : MonoBehaviour
     {
         if (other.GetComponent<PlayerLight>())
         {
-            other.GetComponent<PlayerLight>().currentLightColor = lightColor;
+            if (lightColor != lightTypes.Standart)other.GetComponent<PlayerLight>().currentLightColor = lightColor;
             other.GetComponent<PlayerLight>().AddRemainingLight(lightAmount);
-             if(lightColor == lightTypes.Standart && !destroyParent) Destroy(gameObject);
+
+            if (lightColor == lightTypes.Standart && !destroyParent) Destroy(gameObject);
              else if (lightColor == lightTypes.Standart && destroyParent) Destroy(transform.parent.gameObject);
 
         }

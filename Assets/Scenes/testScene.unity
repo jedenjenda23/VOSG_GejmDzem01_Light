@@ -1198,21 +1198,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 114733400094072822, guid: 6753099b98717d743a95850f64cd4568,
-        type: 2}
-      propertyPath: gravity
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114733400094072822, guid: 6753099b98717d743a95850f64cd4568,
-        type: 2}
-      propertyPath: dashForce
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 114733400094072822, guid: 6753099b98717d743a95850f64cd4568,
-        type: 2}
-      propertyPath: dashRate
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6753099b98717d743a95850f64cd4568, type: 2}
   m_IsPrefabParent: 0

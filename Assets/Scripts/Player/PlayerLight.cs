@@ -38,7 +38,7 @@ public class PlayerLight : MonoBehaviour
 
             float percRemainingLight = GetPercentage(remainingLight, maxLight);
 
-            playerLight.intensity = initLightIntensity * (percRemainingLight * 0.01f);
+         //   playerLight.intensity = initLightIntensity * (percRemainingLight * 0.01f);
             playerLight.range = initLightRadius * (percRemainingLight * 0.01f);
         }
 

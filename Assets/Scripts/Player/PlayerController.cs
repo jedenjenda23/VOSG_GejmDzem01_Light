@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        targetVelocity.y -= gravity * Time.deltaTime;
+        //targetVelocity.y -= gravity * Time.deltaTime;
 
         rb.MovePosition(transform.position + targetVelocity);
 
