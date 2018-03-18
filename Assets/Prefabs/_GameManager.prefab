@@ -66,7 +66,7 @@ MonoBehaviour:
   standarLightColor: {r: 1, g: 0.827451, b: 0.3529412, a: 1}
   redLightColor: {r: 1, g: 0, b: 0, a: 1}
   blueLightColor: {r: 0, g: 0, b: 1, a: 1}
-  greenLightColor: {r: 0.347, g: 1, b: 0.347, a: 1}
+  greenLightColor: {r: 0, g: 1, b: 0, a: 1}
   standartEmmisive: {fileID: 2100000, guid: 88bfb6380225d4d40abb40a1c44e2ecd, type: 2}
   redEmmisive: {fileID: 2100000, guid: ea336057638d58246b4ef7fff40505b8, type: 2}
   greenEmmisive: {fileID: 2100000, guid: d16f6f99a0a733c47bf0ed3b80226540, type: 2}

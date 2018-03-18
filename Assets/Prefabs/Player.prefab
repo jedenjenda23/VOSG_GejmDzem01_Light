@@ -100,15 +100,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1754178269089220}
-  m_LocalRotation: {x: -0, y: 0.03424808, z: -0, w: 0.9994134}
-  m_LocalPosition: {x: 62.825, y: 1.009, z: 13.366}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 52.32, y: 1, z: 40.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4601560464604866}
   - {fileID: 4470853321826260}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 3.9250002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4601560464604866
 Transform:
   m_ObjectHideFlags: 1
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721714181472606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004, y: 1.235, z: 0.285}
+  m_LocalPosition: {x: 0.004, y: 0.46, z: 0.285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4483773775333832}
@@ -182,7 +182,7 @@ Rigidbody:
   m_GameObject: {fileID: 1754178269089220}
   serializedVersion: 2
   m_Mass: 70
-  m_Drag: 6
+  m_Drag: 3
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
   gameStarted: 0
   currentLightColor: 0
   playerLight: {fileID: 108346960651066312}
-  maxLight: 120
+  maxLight: 60
 --- !u!114 &114733400094072822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,11 +285,11 @@ MonoBehaviour:
   animator: {fileID: 95699502506823128}
   movementSpeedBonus: 0
   movementSpeedBonusTimer: 0
-  jumpTime: 0.6
-  dashForce: 250
+  jumpTime: 0.7
+  dashForce: 225
   dashRate: 0.5
   movementSpeed: 6
-  gravity: 7000
+  gravity: 20
   targetVelocity: {x: 0, y: 0, z: 0}
   groundCheckLayer:
     serializedVersion: 2
@@ -319,13 +319,13 @@ SkinnedMeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644447259746370}
   m_Enabled: 1
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6007b916f16f3ed44b35a22a92891d26, type: 2}
+  - {fileID: 2100000, guid: 96bbd63a905fcf5438377d718ef52bae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
