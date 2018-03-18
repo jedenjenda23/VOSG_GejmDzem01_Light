@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1859580411385662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.303745, y: 0, z: 44.485798}
+  m_LocalPosition: {x: 72.36403, y: 0.062963486, z: 126.56819}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4667164974798864}
@@ -285,7 +285,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_Intensity: 0.84091127
   m_Range: 6.3492775
   m_SpotAngle: 30
@@ -337,11 +337,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50a4641a20696f47a5b652b83395f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSounds:
+  - {fileID: 8300000, guid: d38d15a96e1d2504d8599725e08df7bb, type: 3}
+  - {fileID: 8300000, guid: ba11f2c827858dd458302d8c2284f027, type: 3}
+  - {fileID: 8300000, guid: 928d3be2249d54b4a96ba272eefafce1, type: 3}
   destroyParent: 0
-  lightAmount: 40
+  lightAmount: 0
   speedBoostTime: 0
   speedBoostAmount: 0
-  lightColor: 0
+  lightColor: 2
 --- !u!135 &135228121747288990
 SphereCollider:
   m_ObjectHideFlags: 1

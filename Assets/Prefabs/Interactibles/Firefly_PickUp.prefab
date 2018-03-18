@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 1891404553330332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.78, z: 0}
-  m_LocalScale: {x: 0.11643629, y: 0.11643621, z: 0.11643621}
+  m_LocalScale: {x: 0.12430775, y: 0.12430775, z: 0.12430775}
   m_Children: []
   m_Father: {fileID: 4295091456098522}
   m_RootOrder: 0
@@ -160,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1684121687811112}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.76257, y: 0, z: 43.769154}
+  m_LocalPosition: {x: 125.49619, y: 0, z: 200.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4295091456098522}
@@ -334,8 +334,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 6.3492775
+  m_Intensity: 0.05
+  m_Range: 3
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06528a69ba0b6fd4e9185e490822f43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 40
+  movementForce: 50
 --- !u!114 &114668425574440144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,10 +397,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50a4641a20696f47a5b652b83395f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSounds:
+  - {fileID: 8300000, guid: dcc0822035133924ea9d4538846f443a, type: 3}
+  - {fileID: 8300000, guid: 81f579d436c711a4a829ce47e32be878, type: 3}
+  - {fileID: 8300000, guid: d6e9544b73f217544bd39e929c81db77, type: 3}
   destroyParent: 1
-  lightAmount: 10
+  lightAmount: 4
   speedBoostTime: 2
-  speedBoostAmount: 2
+  speedBoostAmount: 0.2
   lightColor: 0
 --- !u!135 &135415840922661912
 SphereCollider:
