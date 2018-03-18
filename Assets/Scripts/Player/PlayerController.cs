@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum surfaceType { Ground, Wood, Stone, Mud, Water, Mist, Null }
+
 public class PlayerController : MonoBehaviour
 {
+    [Header("Surface")]
+    public surfaceType currentSurface;
+
     [Header("Animations")]
     public Animator animator;
 
@@ -23,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public float gravity = 10f;
     public Vector3 targetVelocity;
     public LayerMask groundCheckLayer;
+    RaycastHit groundHit;
 
     [Header("MouseControl")]
     public bool lookAtMouse = true;
@@ -44,6 +50,7 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
         MousePosition();
         CharacterRotation();
+        currentSurface = CheckSurfaceType();
 
         if (movementSpeedBonusTimer > 0) movementSpeedBonusTimer -= Time.deltaTime;
 
@@ -74,6 +81,49 @@ public class PlayerController : MonoBehaviour
         movementSpeedBonusTimer += time;
     }
 
+    
+    surfaceType CheckSurfaceType()
+    {
+        surfaceType mySurface = surfaceType.Null;
+
+        if (Physics.Raycast(transform.position, Vector3.down, out groundHit, 1.05f, groundCheckLayer, QueryTriggerInteraction.Ignore))
+        {
+            string matName = groundHit.collider.material.name;
+            Debug.Log(matName);
+
+            switch (matName)
+            {
+                case "Ground (Instance)":
+                    mySurface = surfaceType.Ground;
+                    break;
+                case "Wood (Instance)":
+                    mySurface = surfaceType.Wood;
+                    break;
+                case "Stone (Instance)":
+                    mySurface = surfaceType.Stone;
+                    break;
+                case "Mud (Instance)":
+                    mySurface = surfaceType.Mud;
+                    break;
+                case "Water (Instance)":
+                    mySurface = surfaceType.Water;
+                    break;
+                case "Mist (Instance)":
+                    mySurface = surfaceType.Mist;
+                    break;
+
+                case "Default (Instance)":
+                    mySurface = surfaceType.Ground;
+                    break;
+            }
+
+        }
+
+        else mySurface = surfaceType.Null;
+
+        return mySurface;
+    }
+    
     bool GroundCheck()
     {
         /*
