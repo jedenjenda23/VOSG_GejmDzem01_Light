@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerController))]
+
 public class PlayerLight : MonoBehaviour
 {
     public bool gameStarted;
@@ -33,18 +35,28 @@ public class PlayerLight : MonoBehaviour
     {
         if(remainingLight > 0)
         {
-            //decrease light
-            remainingLight -= 1 * Time.deltaTime;
 
-            float percRemainingLight = GetPercentage(remainingLight, maxLight);
+            if(GetComponent<PlayerController>().currentSurface == surfaceType.Mist)
+            {
+                //decrease light quicker
+                remainingLight -= 5 * Time.deltaTime;
+            }
 
-         //   playerLight.intensity = initLightIntensity * (percRemainingLight * 0.01f);
-            playerLight.range = initLightRadius * (percRemainingLight * 0.01f);
+            else
+            {
+                //decrease light at normal speed
+                remainingLight -= 1 * Time.deltaTime;
+            }
+
         }
 
-        if (remainingLight < 0) MenuFunctions.instance.RestartCurrentScene();
+        else if (remainingLight < 0) MenuFunctions.instance.RestartCurrentScene();
 
+        float percRemainingLight = GetPercentage(remainingLight, maxLight);
 
+        //   playerLight.intensity = initLightIntensity * (percRemainingLight * 0.01f);
+        playerLight.range = initLightRadius * (percRemainingLight * 0.01f);
+             
         //Update lightColor
 
         switch (currentLightColor)
