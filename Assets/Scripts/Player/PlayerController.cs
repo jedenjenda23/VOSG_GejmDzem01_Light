@@ -164,11 +164,12 @@ public class PlayerController : MonoBehaviour
                 Dash();
             }
         }
+        
 
         //targetVelocity.y -= gravity * Time.deltaTime;
 
         rb.MovePosition(transform.position + targetVelocity);
-
+        rb.AddForce(Vector3.down * gravity, ForceMode.Force);
 
         //reset game when under map
         if (transform.position.y < -50f) MenuFunctions.instance.RestartCurrentScene();
@@ -188,6 +189,8 @@ public class PlayerController : MonoBehaviour
             grounded = false;
 
                 Vector3 dashVector = targetVelocity.normalized * dashForce;
+                dashVector.y = 0.5f * dashForce;
+                
                 rb.AddForce(dashVector * dashForce);
 
             nextDash = Time.time + dashRate;
