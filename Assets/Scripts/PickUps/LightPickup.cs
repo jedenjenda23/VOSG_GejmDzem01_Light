@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LightPickup : MonoBehaviour
 {
+    public AudioClip[] pickupSounds;
+
     public bool destroyParent;
     [SerializeField]
     [Range(0, 120)]
@@ -34,8 +36,25 @@ public class LightPickup : MonoBehaviour
             if (lightColor != lightTypes.Standart)other.GetComponent<PlayerLight>().currentLightColor = lightColor;
             other.GetComponent<PlayerLight>().AddRemainingLight(lightAmount);
 
-            if (lightColor == lightTypes.Standart && !destroyParent) Destroy(gameObject);
-             else if (lightColor == lightTypes.Standart && destroyParent) Destroy(transform.parent.gameObject);
+            if (lightColor == lightTypes.Standart && !destroyParent)
+            {
+                Destroy(gameObject);
+
+            if (pickupSounds.Length > 0)
+                {
+                    int index = Random.Range(0, pickupSounds.Length);
+                    AudioSource.PlayClipAtPoint(pickupSounds[index], transform.position);
+                }
+            }
+             else if (lightColor == lightTypes.Standart && destroyParent)
+            {
+                Destroy(transform.parent.gameObject);
+                if (pickupSounds.Length > 0)
+                {
+                    int index = Random.Range(0, pickupSounds.Length);
+                    AudioSource.PlayClipAtPoint(pickupSounds[index], transform.position);
+                }
+            }
 
         }
 
