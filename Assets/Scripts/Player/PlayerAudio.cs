@@ -25,13 +25,16 @@ public class PlayerAudio : MonoBehaviour
             case surfaceType.Ground:
                 PlayRandomFromArray(softSteps);
                 break;
+            case surfaceType.Wood:
+                PlayRandomFromArray(woodSteps);
+                break;
         }
     }
 
 
     public void PlayRandomFromArray(AudioClip[] myArray)
     {
-        int index = Random.Range(0, myArray.Length - 1);
+        int index = Random.Range(0, myArray.Length);
 
         audioSource.PlayOneShot(myArray[index]);
     }
