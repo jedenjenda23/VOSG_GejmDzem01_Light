@@ -205,11 +205,12 @@ public class PlayerController : MonoBehaviour
 
             // Normalize vector, affection of momevemnt speed in seconds
           if(movementSpeedBonusTimer > 0)  targetVelocity = targetVelocity.normalized * (movementSpeed + movementSpeedBonus) * Time.deltaTime;
-          else targetVelocity = targetVelocity.normalized * movementSpeed * Time.deltaTime;
+          else if(currentSurface == surfaceType.Mist) targetVelocity = targetVelocity.normalized * (movementSpeed * 0.5f) * Time.deltaTime;
+            else targetVelocity = targetVelocity.normalized * movementSpeed * Time.deltaTime;
 
             
 
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && currentSurface != surfaceType.Mist)
             {
                 Dash();
             }
