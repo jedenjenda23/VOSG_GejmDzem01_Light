@@ -15,9 +15,12 @@ public class PlayerLight : MonoBehaviour
     [Range(0, 120)]
     public float maxLight = 60f;
 
-    float remainingLight = 60f;
+    [HideInInspector]
+    public float remainingLight = 60f;
     float initLightIntensity;
-    float initLightRadius;
+
+    [HideInInspector]
+    public float initLightRadius;
 
     private void Awake()
     {

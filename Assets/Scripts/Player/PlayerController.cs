@@ -6,6 +6,8 @@ public enum surfaceType { Ground, Wood, Stone, Mud, Water, Mist, Null }
 
 public class PlayerController : MonoBehaviour
 {
+    public static GameObject playerObject;
+
     [Header("Surface")]
     public surfaceType currentSurface;
 
@@ -17,10 +19,18 @@ public class PlayerController : MonoBehaviour
     public float movementSpeedBonusTimer = 0f;
 
     [Space]
+    [HideInInspector]
     public float jumpTime = 1f;
+   [HideInInspector]
     public float dashForce = 10;
+
+    public float dashSpeed = 1f;
+    public float dashDistance = 5f;
     public float dashRate = 2f;
     float nextDash;
+
+
+    float elapsedTime = 0;
 
 
     [Space]
@@ -42,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        PlayerController.playerObject = gameObject;
+
         rb = GetComponent<Rigidbody>();
     }
 
@@ -197,7 +209,7 @@ public class PlayerController : MonoBehaviour
     {
         if(!jumping)grounded = GroundCheck();
 
-        if (grounded)
+        if (grounded && elapsedTime == 0)
         {
             // Input
             targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -211,7 +223,22 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && currentSurface != surfaceType.Mist)
             {
-                Dash();
+                if (Time.time > nextDash)
+                {
+                    //Dash();
+                    float dashDist = dashDistance;
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(transform.position, targetVelocity.normalized, out hit, dashDistance))
+                    {
+                        dashDist = hit.distance;
+                        Debug.DrawLine(transform.position, hit.point, Color.blue, 2f);
+                    }
+
+                    StartCoroutine("Dash", dashDist);
+
+                    nextDash = Time.time + dashRate;
+                }
             }
         }
         
@@ -225,26 +252,38 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < -50f) MenuFunctions.instance.RestartCurrentScene();
     }
 
-    public void Dash()
+    IEnumerator Dash(float dashDist)
     {
-        if (Time.time > nextDash)
+
+        /*
+        //aimator
+        animator.SetBool("jump", true);
+
+        StartCoroutine("SetJumpingFalse", jumpTime);
+
+        jumping = true;
+        grounded = false;
+
+            Vector3 dashVector = targetVelocity.normalized * dashForce;
+            dashVector.y = 0.5f * dashForce;
+
+            rb.AddForce(dashVector * dashForce);
+
+        nextDash = Time.time + dashRate;
+        */
+       
+
+        while (elapsedTime < dashSpeed)
         {
+            Debug.DrawLine(transform.position, targetVelocity.normalized * dashDist, Color.red);
 
-            //aimator
-            animator.SetBool("jump", true);
+            elapsedTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, transform.position + targetVelocity.normalized * dashDist, Time.deltaTime * dashSpeed * 10);
 
-            StartCoroutine("SetJumpingFalse", jumpTime);
-
-            jumping = true;
-            grounded = false;
-
-                Vector3 dashVector = targetVelocity.normalized * dashForce;
-                dashVector.y = 0.5f * dashForce;
-                
-                rb.AddForce(dashVector * dashForce);
-
-            nextDash = Time.time + dashRate;
+            yield return new WaitForEndOfFrame();
         }
+
+        elapsedTime = 0;
     }
 
     IEnumerator SetJumpingFalse(float time)
