@@ -86,10 +86,9 @@ public class PlayerController : MonoBehaviour
     {
         surfaceType mySurface = surfaceType.Null;
 
-        if (Physics.Raycast(transform.position, Vector3.down, out groundHit, 1.05f, groundCheckLayer, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position, Vector3.down, out groundHit, 1.05f, groundCheckLayer))
         {
             string matName = groundHit.collider.material.name;
-            Debug.Log(matName);
 
             switch (matName)
             {
