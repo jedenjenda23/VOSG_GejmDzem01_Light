@@ -117,8 +117,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1754178269089220}
-  m_LocalRotation: {x: -0, y: 0.03424808, z: -0, w: 0.9994134}
-  m_LocalPosition: {x: 61.27, y: 1.17, z: 14.11}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 69.89, y: 1, z: 32.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4601560464604866}
@@ -383,6 +383,8 @@ MonoBehaviour:
   currentLightColor: 0
   playerLight: {fileID: 108346960651066312}
   maxLight: 20
+  remainingLight: 60
+  initLightRadius: 0
 --- !u!114 &114546249749657684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,6 +426,8 @@ MonoBehaviour:
   movementSpeedBonusTimer: 0
   jumpTime: 0.6
   dashForce: 250
+  dashSpeed: 0.25
+  dashDistance: 3.84
   dashRate: 0.5
   movementSpeed: 6
   gravity: 7000
