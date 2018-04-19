@@ -18,7 +18,7 @@ public class playerUI : MonoBehaviour
         if (playerUI.instance != null) Destroy(gameObject);
         else playerUI.instance = this;
 
-       // DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
