@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33287188348970210}
   - component: {fileID: 65867854035691546}
   - component: {fileID: 23276731216546538}
-  - component: {fileID: 114927000051754618}
+  - component: {fileID: 114342967409506406}
   m_Layer: 0
   m_Name: LoadMapTrigger
   m_TagString: Untagged
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1453899662332374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.41, y: -0.04, z: 29.24}
+  m_LocalPosition: {x: 47.27855, y: -7.1153903, z: 48.121357}
   m_LocalScale: {x: 2.8893218, y: 0.5692195, z: 2.8893225}
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114927000051754618
+--- !u!114 &114342967409506406
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1453899662332374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16644c6ee49f8046a23910adc6380ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c5fa4c54a63e894dad22074cada1441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportLocation: {fileID: 0}
+  targetScene: Onion Knight forever...

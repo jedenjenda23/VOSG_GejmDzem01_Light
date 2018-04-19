@@ -52,7 +52,7 @@ public class playerUI : MonoBehaviour
 
         else minutesString = "" + Mathf.Round(currentMinutes);
         ///////
-        timerText.text = "Current time: " + minutesString + ":" + secondsString;
+        timerText.text = minutesString + ":" + secondsString;
         
 
         if(PlayerController.playerObject != null)
