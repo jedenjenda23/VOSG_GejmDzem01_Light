@@ -9,7 +9,7 @@ public class jjToolkitWindow : EditorWindow
 
     Vector3 positionVector;
     Vector3 rotationVector;
-    Vector3 scaleVector = new Vector3(1,1,1);
+    Vector3 scaleVector = new Vector3(1, 1, 1);
     Quaternion savedRotation;
 
     bool toggleTransformations = false;
@@ -25,15 +25,15 @@ public class jjToolkitWindow : EditorWindow
         //if (Selection.transforms.Length > 0) GUILayout.Label("Selected:" + Selection.transforms[Selection.transforms.Length - 1]);
         GUILayout.Box("Selection Control");
 
-        if(GUILayout.Button("Clear Selection"))
+        if (GUILayout.Button("Clear Selection"))
         {
             Selection.activeTransform = null;
         }
 
         if (GUILayout.Button("Group Objects (Ctrl+G)"))
-            {
+        {
             GroupObjects();
-            }
+        }
 
         //////////////////
         //GUILayout.Label("");
@@ -46,7 +46,7 @@ public class jjToolkitWindow : EditorWindow
 
         GUILayout.BeginHorizontal();
 
-        if (GUILayout.Button("Set Parent (P)"))
+        if (GUILayout.Button("Set Parent (Ctrl+Shift+P)"))
         {
             SetLastAsParent();
         }
@@ -62,7 +62,7 @@ public class jjToolkitWindow : EditorWindow
 
         //EDIT TRANSFORMATIONS
         toggleTransformations = EditorGUILayout.Foldout(toggleTransformations, "Edit Transforms", true);
-        if(toggleTransformations)
+        if (toggleTransformations)
         {
             ///////POSITION
             positionVector = EditorGUILayout.Vector3Field("Position", positionVector);
@@ -143,7 +143,7 @@ public class jjToolkitWindow : EditorWindow
         GUILayout.Box("last:" + outputText);
         Repaint();
     }
-    
+
     [MenuItem("JJToolkit/Functions/GroupSelectedObjects %g")]
     // create group of objects
     static void GroupObjects()
@@ -152,7 +152,7 @@ public class jjToolkitWindow : EditorWindow
 
         GameObject groupEmpty = null;
         Undo.RegisterCreatedObjectUndo(groupEmpty = new GameObject("GROUP (size: " + Selection.transforms.Length + ")" + "(" + Selection.transforms[0].name + ")"), "" + groupEmpty);
-        
+
 
         groupEmpty.transform.position = groupOrigin;
 
@@ -178,7 +178,7 @@ public class jjToolkitWindow : EditorWindow
         return center / count;
     }
 
-    [MenuItem("JJToolkit/Functions/SetLastAsParent _p")]
+    [MenuItem("JJToolkit/Functions/SetLastAsParent %&p")]
     static void SetLastAsParent()
     {
         Undo.RecordObjects(Selection.transforms, "SetLastAsParent" + Selection.transforms[Selection.transforms.Length - 1]);
@@ -191,7 +191,7 @@ public class jjToolkitWindow : EditorWindow
             }
 
             outputText = "SetLastAsParent: " + Selection.transforms[Selection.transforms.Length - 1].name + "of " + (Selection.transforms.Length - 1) + "objects";
-        }       
+        }
     }
     [MenuItem("JJToolkit/Functions/ClearParent &p")]
     static void ClearParent()
