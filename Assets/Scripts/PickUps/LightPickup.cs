@@ -36,7 +36,7 @@ public class LightPickup : MonoBehaviour
             if (lightColor != lightTypes.Standart)other.GetComponent<PlayerLight>().currentLightColor = lightColor;
             other.GetComponent<PlayerLight>().AddRemainingLight(lightAmount);
 
-            if (lightColor == lightTypes.Standart && !destroyParent)
+            if (!destroyParent)
             {
                 Destroy(gameObject);
 
@@ -46,7 +46,7 @@ public class LightPickup : MonoBehaviour
                     AudioSource.PlayClipAtPoint(pickupSounds[index], transform.position);
                 }
             }
-             else if (lightColor == lightTypes.Standart && destroyParent)
+             else if (destroyParent)
             {
                 Destroy(transform.parent.gameObject);
                 if (pickupSounds.Length > 0)

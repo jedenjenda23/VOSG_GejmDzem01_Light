@@ -358,6 +358,16 @@ Prefab:
       propertyPath: pickupSounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 928d3be2249d54b4a96ba272eefafce1, type: 3}
+    - target: {fileID: 108218804500451402, guid: cde23a9e428ca634db86a06a7444dd8f,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108218804500451402, guid: cde23a9e428ca634db86a06a7444dd8f,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cde23a9e428ca634db86a06a7444dd8f, type: 2}
   m_IsPrefabParent: 0
@@ -705,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5fa4c54a63e894dad22074cada1441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: scene_mainMenu
+  targetScene: scene_endGame
 --- !u!4 &341378700 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4960248187671572, guid: d3f1b1b994c429f40801c3a4c0723098,
@@ -2019,7 +2029,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4974664699659474, guid: 58d7dcbf7ba671b4299fa31ea42ed53d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 46.57821
+      value: 67.6
       objectReference: {fileID: 0}
     - target: {fileID: 4974664699659474, guid: 58d7dcbf7ba671b4299fa31ea42ed53d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2027,7 +2037,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4974664699659474, guid: 58d7dcbf7ba671b4299fa31ea42ed53d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 26.288261
+      value: 28.97
       objectReference: {fileID: 0}
     - target: {fileID: 4974664699659474, guid: 58d7dcbf7ba671b4299fa31ea42ed53d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2373,6 +2383,16 @@ Prefab:
       propertyPath: pickupSounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 928d3be2249d54b4a96ba272eefafce1, type: 3}
+    - target: {fileID: 108218804500451402, guid: cde23a9e428ca634db86a06a7444dd8f,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108218804500451402, guid: cde23a9e428ca634db86a06a7444dd8f,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cde23a9e428ca634db86a06a7444dd8f, type: 2}
   m_IsPrefabParent: 0

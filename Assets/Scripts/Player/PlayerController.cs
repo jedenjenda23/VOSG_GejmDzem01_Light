@@ -226,6 +226,8 @@ public class PlayerController : MonoBehaviour
                 if (Time.time > nextDash)
                 {
                     //Dash();
+                    nextDash = Time.time + dashRate;
+
                     float dashDist = dashDistance;
                     RaycastHit hit;
 
@@ -236,8 +238,6 @@ public class PlayerController : MonoBehaviour
                     }
 
                     StartCoroutine("Dash", dashDist);
-
-                    nextDash = Time.time + dashRate;
                 }
             }
         }

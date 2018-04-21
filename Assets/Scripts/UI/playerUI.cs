@@ -12,6 +12,7 @@ public class playerUI : MonoBehaviour
     public bool timerActive;
     public float currentSeconds;
     public float currentMinutes;
+    public float timeInFloat;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class playerUI : MonoBehaviour
     {
         if (timerActive)
         {
+            timeInFloat += 1 * Time.deltaTime;
             currentSeconds += 1 * Time.deltaTime;
         }
 
