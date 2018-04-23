@@ -19,6 +19,15 @@ public class ScoreManager : MonoBehaviour
         ScoreboardPanel.instance.DrawScores(scoreboardSize, loadedScores);
     }
 
+    public void Reload()
+    {
+        SaveNull();
+        LoadPlayerScores();
+        SavePlayerScores();
+        ScoreboardPanel.instance.DrawScores(scoreboardSize, loadedScores);
+
+    }
+
     [ContextMenu("Reset scoreboard")]
     public void SaveNull()
     {
@@ -44,7 +53,7 @@ public class ScoreManager : MonoBehaviour
         loadedScores.Sort((s1, s2) => s1.playerTimeTotal.CompareTo(s2.playerTimeTotal));
 
         //rewrite playerprefs
-        Debug.Log("loaded scores" + loadedScores.Count);
+        //Debug.Log("loaded scores" + loadedScores.Count);
 
         for (int i = 0; i < scoreboardSize; i ++)
         {

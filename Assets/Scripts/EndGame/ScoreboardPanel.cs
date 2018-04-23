@@ -9,6 +9,7 @@ public class ScoreboardPanel : MonoBehaviour
 
     public RectTransform scoreboardPanel;
     public GameObject playerScoreObject;
+    List<GameObject> lines = new List<GameObject>();
 
     void Awake()
     {
@@ -18,10 +19,22 @@ public class ScoreboardPanel : MonoBehaviour
 
     public void DrawScores(int scoreboardSize, List<PlayerScore> playerScores)
     {
+        if (lines.Count > 0)
+        {
+            foreach (GameObject obj in lines)
+            {
+                Destroy(obj);
+            }
+        }
+
+        lines.Clear();
+
         for (int i = 0; i < scoreboardSize; i++)
         {
             GameObject newScoreObj = Instantiate(playerScoreObject, scoreboardPanel);
             newScoreObj.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
+
+            lines.Add(newScoreObj);
 
             //Draw in panel if it's not null score
             if(playerScores[i].playerTimeTotal >= 0)
