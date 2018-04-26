@@ -23,7 +23,11 @@ public class ScoreManager : MonoBehaviour
     {
         SaveNull();
         LoadPlayerScores();
+
+        AddNewPlayerScore("(devRecord)F. Papousek", "1:30", 90);
+
         SavePlayerScores();
+        LoadPlayerScores();
         ScoreboardPanel.instance.DrawScores(scoreboardSize, loadedScores);
 
     }
