@@ -60,7 +60,7 @@ public class Music : MonoBehaviour {
             if (currentLight < 0.01) currentLight = 0;
         }
 
-        cas = Mathf.FloorToInt((Time.time*2) % 15);
+        cas = Mathf.FloorToInt((Time.time*8) % 15);
         if (cas == 0) casChange = 0;
         if (CanChange())
         {
