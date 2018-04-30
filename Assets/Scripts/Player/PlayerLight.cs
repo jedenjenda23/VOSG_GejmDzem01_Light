@@ -29,6 +29,11 @@ public class PlayerLight : MonoBehaviour
         initLightRadius = playerLight.range;
     }
 
+    private void Start()
+    {
+        Music.instancA.GetComponent<Music>().ChangeRightNow();
+    }
+
     void Update ()
     {
         if(gameStarted)UpdateLight();

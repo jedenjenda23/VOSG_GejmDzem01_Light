@@ -43,7 +43,7 @@ public class LightPickup : MonoBehaviour
             if (pickupSounds.Length > 0)
                 {
                     int index = Random.Range(0, pickupSounds.Length);
-                    AudioSource.PlayClipAtPoint(pickupSounds[index], transform.position);
+                    AudioSource.PlayClipAtPoint(pickupSounds[index], transform.position,1.5f);
                 }
             }
              else if (destroyParent)
